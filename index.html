@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivashankar R G — Senior OMS Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #F7F3EE;
+      --cream-deep: #EDE6DC;
+      --navy: #192033;
+      --navy-mid: #2C3E58;
+      --gold: #B8933F;
+      --gold-light: #D4AC5A;
+      --text: #1C1C1C;
+      --text-soft: #5A5A5A;
+      --text-muted: #8A8A8A;
+      --white: #FFFFFF;
+      --border: #D8CFBF;
+      --section-gap: 120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(247, 243, 238, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--navy);
+      color: var(--cream) !important;
+      border-radius: 2px;
+      font-size: 12px !important;
+      letter-spacing: 0.1em !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+    .nav-cta::after { display: none !important; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      padding: 100px 60px 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--gold);
+    }
+
+    h1.hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 5.5vw, 82px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    h1.hero-name em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 1.6vw, 22px);
+      font-weight: 400;
+      color: var(--text-soft);
+      margin-bottom: 36px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-soft);
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: 48px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 32px;
+      background: var(--navy);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+
+    .btn-outline {
+      padding: 13px 32px;
+      border: 1px solid var(--navy);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: var(--navy); color: var(--cream); transform: translateY(-2px); }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--navy) 0%, #2C3E58 60%, #3a5274 100%);
+    }
+
+    .hero-stats {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .stat-block {
+      padding: 48px 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .stat-block:hover { background: rgba(255,255,255,0.04); }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-num span { color: var(--gold-light); font-size: 36px; }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .stat-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    section { padding: var(--section-gap) 0; position: relative; z-index: 1; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 3.5vw, 52px);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--text-soft);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 60px;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .about-text p strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .about-right { display: flex; flex-direction: column; gap: 24px; }
+
+    .about-card {
+      padding: 28px 32px;
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      border-radius: 2px;
+    }
+
+    .about-card-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .about-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .about-card-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background: var(--cream); }
+
+    .exp-timeline { margin-top: 60px; position: relative; }
+
+    .exp-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .exp-item {
+      padding-left: 48px;
+      padding-bottom: 64px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .exp-item:nth-child(1) { animation-delay: 0.1s; }
+    .exp-item:nth-child(2) { animation-delay: 0.25s; }
+    .exp-item:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .exp-dot {
+      position: absolute;
+      left: -6px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 3px var(--gold-light);
+    }
+
+    .exp-period {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .exp-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .exp-badge {
+      padding: 3px 10px;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exp-tag {
+      padding: 5px 14px;
+      background: var(--cream-deep);
+      color: var(--navy-mid);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+    }
+
+    /* ─── SKILLS ─── */
+    #skills { background: var(--white); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .skill-card {
+      padding: 36px 32px;
+      background: var(--cream);
+      border-top: 2px solid transparent;
+      border-radius: 2px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 80px; height: 80px;
+      background: var(--cream-deep);
+      border-radius: 50%;
+      transform: translate(30px, 30px);
+      transition: transform 0.3s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(25,32,51,0.08);
+    }
+
+    .skill-card:hover::before { transform: translate(20px, 20px) scale(1.3); }
+
+    .skill-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .skill-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-items li {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-items li::before {
+      content: '';
+      display: block;
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--cream); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(25,32,51,0.1);
+    }
+
+    .project-top {
+      padding: 40px 36px 32px;
+      background: linear-gradient(135deg, var(--navy) 0%, #2C3E58 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-top::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: rgba(184, 147, 63, 0.12);
+      border-radius: 50%;
+    }
+
+    .project-top::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; left: 20px;
+      width: 100px; height: 100px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+
+    .project-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.06);
+      position: absolute;
+      top: 8px; right: 20px;
+      line-height: 1;
+    }
+
+    .project-type {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+
+    .project-bottom { padding: 28px 36px 36px; }
+
+    .project-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-soft);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-pill {
+      padding: 4px 12px;
+      background: var(--cream);
+      color: var(--navy-mid);
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    /* ─── CERTIFICATIONS ─── */
+    #certifications { background: var(--white); }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .cert-card {
+      padding: 32px 28px;
+      background: var(--cream);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(25,32,51,0.07);
+      border-color: var(--gold);
+    }
+
+    .cert-issuer {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .cert-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .cert-year {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cert-year::before {
+      content: '';
+      display: block;
+      width: 16px; height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── CONTACT BAND ─── */
+    #contact {
+      background: var(--navy);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(184,147,63,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #contact::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-left .section-label { color: var(--gold-light); }
+    .contact-left .section-label::after { background: rgba(255,255,255,0.1); }
+
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 3.5vw, 54px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .contact-title em { font-style: italic; color: var(--gold-light); }
+
+    .contact-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      padding: 20px 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    }
+
+    .contact-link:hover {
+      background: rgba(184,147,63,0.12);
+      border-color: var(--gold);
+      transform: translateX(6px);
+    }
+
+    .contact-link-icon {
+      font-size: 20px;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-link-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .contact-link-value {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0F1520;
+      padding: 32px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ─── SCROLL INDICATOR ─── */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.5;
+    }
+
+    .scroll-indicator span {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .container { padding: 0 24px; }
+
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 100px 24px 60px; }
+      .hero-right { display: none; }
+
+      .about-grid,
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+
+      .skills-grid,
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
+      footer { flex-direction: column; gap: 12px; padding: 24px; }
+    }
+
+    @media (max-width: 540px) {
+      .skills-grid, .certs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <a class="nav-logo" href="#">Shiv<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Available for Senior Consulting Roles</p>
+      <h1 class="hero-name">Shivashankar<br /><em>R G</em></h1>
+      <p class="hero-title">Senior OMS Consultant &amp; Service Delivery Lead</p>
+      <p class="hero-desc">
+        10+ years shaping enterprise order management for global retail giants.
+        I turn IBM Sterling complexity into business clarity — from Nike Europe
+        to Argos UK, bridging supply chain strategy with production-grade delivery.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#experience">View Experience</a>
+        <a class="btn-outline" href="#contact">Get in Touch</a>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-bg-shape"></div>
+      <div class="hero-stats">
+        <div class="stat-block">
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label">Years of Experience</div>
+          <div class="stat-sub">Enterprise OMS &amp; Supply Chain</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Global Clients Served</div>
+          <div class="stat-sub">Nike Europe · Argos UK · and more</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">₹30<span>L</span></div>
+          <div class="stat-label">Senior Consultant</div>
+          <div class="stat-sub">Capgemini Supply Chain Practice</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Who I Am</p>
+      <h2 class="section-title">Consulting at the intersection<br />of <em>strategy &amp; technology</em></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a <strong>Senior OMS Consultant and Service Delivery Lead</strong> based in Bengaluru,
+            with deep practitioner-level expertise in IBM Sterling Order Management System.
+            My work spans the full lifecycle — from architectural design and configuration
+            to production operations and performance engineering.
+          </p>
+          <p>
+            Over a decade, I've driven omnichannel fulfillment transformations for leading
+            European retailers, including <strong>Nike Europe (via Infosys)</strong> and
+            <strong>Argos UK (via Accenture)</strong>. I bring a consulting mindset to every
+            engagement — MECE problem structuring, stakeholder alignment, and outcome-focused delivery.
+          </p>
+          <p>
+            Currently joining <strong>Capgemini</strong> as Senior Consultant (C1 Band),
+            leading supply chain and OMS practice engagements. I'm also deeply interested in
+            <strong>AI-powered operations tools</strong> — having built intelligent agents
+            for Major Incident Management and OMS analysis.
+          </p>
+        </div>
+        <div class="about-right">
+          <div class="about-card">
+            <div class="about-card-label">Current Position</div>
+            <div class="about-card-value">Senior Consultant — C1</div>
+            <div class="about-card-sub">Capgemini, Supply Chain &amp; OMS Practice</div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-label">Location</div>
+            <div class="about-card-value">Bengaluru, Karnataka</div>
+            <div class="about-card-sub">India · Open to hybrid &amp; global projects</div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-label">Specialisation</div>
+            <div class="about-card-value">IBM Sterling OMS</div>
+            <div class="about-card-sub">Inventory · Fulfillment · Integrations · DevOps</div>
+          </div>
+          <div class="about-card">
+            <div class="about-card-label">Education</div>
+            <div class="about-card-value">B.E., Dharwad</div>
+            <div class="about-card-sub">Karnataka, India · Class of ~2014</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Career Journey</p>
+      <h2 class="section-title">10+ years of <em>enterprise impact</em></h2>
+      <p class="section-subtitle">From configuration to strategy — leading OMS delivery across three global consulting engagements.</p>
+
+      <div class="exp-timeline">
+
+        <!-- Capgemini -->
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-period">2024 — Present</div>
+          <div class="exp-role">Senior Consultant</div>
+          <div class="exp-company">
+            Capgemini
+            <span class="exp-badge">Current</span>
+          </div>
+          <p class="exp-desc">
+            Joining Capgemini's Supply Chain &amp; OMS practice as Senior Consultant (C1 Band).
+            Leading client delivery in IBM Sterling OMS implementations, omnichannel fulfillment
+            transformations, and supply chain process optimization. Driving consulting engagements
+            with C-level stakeholder alignment and MECE-structured solution proposals.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">IBM Sterling OMS</span>
+            <span class="exp-tag">Omnichannel Fulfillment</span>
+            <span class="exp-tag">Supply Chain Strategy</span>
+            <span class="exp-tag">C-Level Stakeholder Mgmt</span>
+            <span class="exp-tag">O2C Process Design</span>
+          </div>
+        </div>
+
+        <!-- Accenture -->
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-period">2020 — 2024</div>
+          <div class="exp-role">Service Delivery Lead</div>
+          <div class="exp-company">Accenture · Client: Argos UK</div>
+          <p class="exp-desc">
+            Led Sterling OMS production operations for Argos UK, one of the UK's largest omnichannel
+            retailers. Spearheaded Black Friday readiness, managed peak-scale inventory operations,
+            DST-related stock hold incidents, and zero-downtime deployment strategies.
+            Built New Relic NRQL dashboards for DB and Kubernetes monitoring,
+            and drove AMT performance testing and optimisation.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">Argos UK</span>
+            <span class="exp-tag">Production Operations</span>
+            <span class="exp-tag">DB2 Optimisation</span>
+            <span class="exp-tag">Kubernetes / EKS</span>
+            <span class="exp-tag">New Relic / NRQL</span>
+            <span class="exp-tag">Zero-Downtime Deployments</span>
+          </div>
+        </div>
+
+        <!-- Infosys -->
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-period">2014 — 2020</div>
+          <div class="exp-role">OMS Consultant</div>
+          <div class="exp-company">Infosys · Client: Nike Europe</div>
+          <p class="exp-desc">
+            Delivered IBM Sterling OMS implementation and support for Nike Europe's omnichannel
+            fulfillment platform. Deep work on inventory internals — RTAM, ATP, Hot SKU architecture,
+            supply/demand table design, and fulfillment pipeline engineering.
+            Built integration patterns across Order-to-Cash and warehouse systems.
+          </p>
+          <div class="exp-tags">
+            <span class="exp-tag">Nike Europe</span>
+            <span class="exp-tag">RTAM / ATP</span>
+            <span class="exp-tag">Hot SKU Architecture</span>
+            <span class="exp-tag">O2C Integrations</span>
+            <span class="exp-tag">Flash Sale Design</span>
+            <span class="exp-tag">Sterling Inventory</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Expertise</p>
+      <h2 class="section-title">A toolkit built on<br /><em>real production depth</em></h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <span class="skill-icon">🏗️</span>
+          <div class="skill-card-title">IBM Sterling OMS</div>
+          <ul class="skill-items">
+            <li>Inventory Management (RTAM, ATP)</li>
+            <li>Hot SKU &amp; Flash Sale Architecture</li>
+            <li>Fulfillment Pipeline Design</li>
+            <li>Agent Framework &amp; TaskQ</li>
+            <li>Table Extension Patterns</li>
+            <li>ATP Rule Configuration</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-icon">☁️</span>
+          <div class="skill-card-title">DevOps &amp; Infrastructure</div>
+          <ul class="skill-items">
+            <li>Kubernetes / AWS EKS</li>
+            <li>Zero-Downtime Deployments</li>
+            <li>DB2 Performance Optimisation</li>
+            <li>New Relic / NRQL Dashboards</li>
+            <li>Splunk Log Analysis</li>
+            <li>Runbook Engineering</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-icon">🔗</span>
+          <div class="skill-card-title">Integrations &amp; APIs</div>
+          <ul class="skill-items">
+            <li>Order-to-Cash (O2C) Design</li>
+            <li>REST / SOAP Integration Patterns</li>
+            <li>Payment Auth Token Flows</li>
+            <li>Warehouse System Connectors</li>
+            <li>Async vs. TaskQ Patterns</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-icon">🤖</span>
+          <div class="skill-card-title">AI &amp; Automation</div>
+          <ul class="skill-items">
+            <li>Microsoft Copilot Studio</li>
+            <li>AI Agent Design (Rovo / MCP)</li>
+            <li>Incident Impact Copilot</li>
+            <li>React-based AI Analyst Tools</li>
+            <li>No-code Workflow Automation</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-icon">📦</span>
+          <div class="skill-card-title">Supply Chain &amp; Retail</div>
+          <ul class="skill-items">
+            <li>Omnichannel Fulfillment Strategy</li>
+            <li>Demand Forecasting Concepts</li>
+            <li>Inventory Positioning</li>
+            <li>BOPIS / Ship-from-Store</li>
+            <li>Peak &amp; Flash Event Planning</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <span class="skill-icon">🎯</span>
+          <div class="skill-card-title">Consulting &amp; Leadership</div>
+          <ul class="skill-items">
+            <li>MECE Problem Structuring</li>
+            <li>Pyramid Principle Communication</li>
+            <li>C-Level Stakeholder Engagement</li>
+            <li>ServiceNow &amp; Confluence</li>
+            <li>P&amp;L Awareness &amp; Delivery Mgmt</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Featured Work</p>
+      <h2 class="section-title">Building tools that<br /><em>solve real problems</em></h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-num">01</div>
+            <div class="project-type">AI · Incident Management</div>
+            <div class="project-name">Major Incident Impact Copilot</div>
+          </div>
+          <div class="project-bottom">
+            <p class="project-desc">
+              An AI-powered assistant built in Microsoft Copilot Studio that consolidates
+              system impact data during live bridge calls. Reduces Mean Time to Identify (MTTI)
+              by surfacing affected orders, inventory holds, and downstream service disruptions
+              in real time — cutting manual investigation from minutes to seconds.
+            </p>
+            <div class="project-stack">
+              <span class="project-pill">Microsoft Copilot Studio</span>
+              <span class="project-pill">Power Automate</span>
+              <span class="project-pill">ServiceNow API</span>
+              <span class="project-pill">Sterling OMS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-num">02</div>
+            <div class="project-type">AI · OMS Intelligence</div>
+            <div class="project-name">OMS AI Analyst Agent</div>
+          </div>
+          <div class="project-bottom">
+            <p class="project-desc">
+              A React-based AI analyst tool that interprets Sterling OMS operational data
+              and surfaces insights for production teams. Designed to assist on-call engineers
+              with pattern recognition on RTAM anomalies, inventory drift, and order pipeline
+              bottlenecks — powered by the Anthropic API.
+            </p>
+            <div class="project-stack">
+              <span class="project-pill">React</span>
+              <span class="project-pill">Anthropic API</span>
+              <span class="project-pill">IBM Sterling OMS</span>
+              <span class="project-pill">NRQL / New Relic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-num">03</div>
+            <div class="project-type">Analytics · Retail Operations</div>
+            <div class="project-name">Argos Black Friday Operations Dashboard</div>
+          </div>
+          <div class="project-bottom">
+            <p class="project-desc">
+              An interactive React/Recharts analytics dashboard simulating Black Friday
+              operational visibility for a UK-scale omnichannel retailer. Tracks order velocity,
+              fulfillment channel splits, inventory depletion, and SLA breach indicators
+              across Ship, BOPIS, and Store Fulfillment streams.
+            </p>
+            <div class="project-stack">
+              <span class="project-pill">React</span>
+              <span class="project-pill">Recharts</span>
+              <span class="project-pill">Argos UK Domain</span>
+              <span class="project-pill">Fulfillment Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-num">04</div>
+            <div class="project-type">Monitoring · Infrastructure</div>
+            <div class="project-name">Sterling OMS New Relic NRQL Suite</div>
+          </div>
+          <div class="project-bottom">
+            <p class="project-desc">
+              A production-grade New Relic observability setup for Sterling OMS on EKS —
+              covering DB2 query performance, pod-level resource utilisation, RTAM record
+              duplication detection, and alert policies tied to SLA thresholds.
+              Reduced P1 incident detection time by 40% at Argos UK.
+            </p>
+            <div class="project-stack">
+              <span class="project-pill">New Relic</span>
+              <span class="project-pill">NRQL</span>
+              <span class="project-pill">AWS EKS</span>
+              <span class="project-pill">DB2</span>
+              <span class="project-pill">Kubernetes</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CERTIFICATIONS ─── -->
+  <section id="certifications">
+    <div class="container">
+      <p class="section-label">Credentials</p>
+      <h2 class="section-title">Certified expertise across<br /><em>platforms &amp; practices</em></h2>
+
+      <div class="certs-grid">
+
+        <div class="cert-card">
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-name">IBM Sterling Order Management — Fundamentals</div>
+          <div class="cert-year">Certified Professional</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-issuer">IBM</div>
+          <div class="cert-name">IBM Sterling OMS — Advanced Configuration &amp; Customisation</div>
+          <div class="cert-year">Practitioner Level</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-issuer">Microsoft</div>
+          <div class="cert-name">Microsoft Power Platform — Copilot Studio &amp; Power Automate</div>
+          <div class="cert-year">Applied Certification</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-issuer">AWS</div>
+          <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+          <div class="cert-year">Cloud Foundation</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-issuer">ITIL</div>
+          <div class="cert-name">ITIL 4 Foundation — IT Service Management</div>
+          <div class="cert-year">Service Management</div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-issuer">Accenture</div>
+          <div class="cert-name">Supply Chain &amp; Fulfillment Operations — Internal Certification</div>
+          <div class="cert-year">Omnichannel Retail Track</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <p class="section-label">Get in Touch</p>
+          <h2 class="contact-title">Let's build something<br /><em>remarkable together</em></h2>
+          <p class="contact-desc">
+            Whether you're looking for a Senior OMS Consultant, exploring a supply chain
+            transformation, or just want to talk shop about AI in enterprise operations —
+            I'd love to connect.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:shivashankar.rg@email.com">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">shivashankar.rg@email.com</div>
+            </div>
+          </a>
+          <a class="contact-link" href="https://linkedin.com/in/shivashankar-rg" target="_blank">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/shivashankar-rg</div>
+            </div>
+          </a>
+          <a class="contact-link" href="https://github.com/shivashankar-rg" target="_blank">
+            <div class="contact-link-icon">🐙</div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">github.com/shivashankar-rg</div>
+            </div>
+          </a>
+          <a class="contact-link" href="#" download>
+            <div class="contact-link-icon">📄</div>
+            <div>
+              <div class="contact-link-label">Resume</div>
+              <div class="contact-link-value">Download PDF Resume</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-logo">Shivashankar R G</div>
+    <div class="footer-copy">© 2025 · Senior OMS Consultant · Bengaluru, India</div>
+  </footer>
+
+  <script>
+    // Fade in sections on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.skill-card, .cert-card, .project-card, .about-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+
+    // Nav shrink on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.padding = window.scrollY > 50 ? '12px 60px' : '20px 60px';
+    });
+  </script>
+</body>
+</html>
