@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  background: oklch(0.93 0.008 85);
+  font-family: 'Archivo', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: oklch(0.52 0.09 200); text-decoration: none; }
+a:hover { color: oklch(0.40 0.09 200); }
+
+::-webkit-scrollbar { width: 0; height: 0; }
+
+@keyframes tScreen { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tRow { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tSheet { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes tSweep { 0% { transform: translateX(-110%); } 100% { transform: translateX(360%); } }
+@keyframes tBreathe { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes tLink { from { stroke-dashoffset: 120; } to { stroke-dashoffset: 0; } }
+@keyframes tToast { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tStage { from { opacity: 0; transform: translateY(14px) scale(0.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes tRail { from { height: 0; } to { height: 26px; } }
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px 60px;
+  gap: 44px;
+  flex-wrap: wrap;
+}
+
+.phone {
+  width: 390px;
+  height: 844px;
+  background: oklch(0.975 0.007 85);
+  border: 1px solid oklch(0.84 0.006 80);
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 30px 70px -34px oklch(0.24 0.012 70 / 0.35);
+}
+
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  color: oklch(0.46 0.008 70);
+  flex-shrink: 0;
+}
+
+.restart-btn:hover { border-color: oklch(0.24 0.012 70); color: oklch(0.24 0.012 70); }
+.source-card:hover { border-color: oklch(0.24 0.012 70); }
+.row-hover:hover { background: oklch(0.968 0.007 85); }
+.recon-toggle:hover { border-color: oklch(0.24 0.012 70); }
